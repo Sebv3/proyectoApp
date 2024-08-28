@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth'
 import { User } from '../models/user.models';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getFirestore, setDoc, doc, getDoc } from '@angular/fire/firestore';
+import { getFirestore, setDoc, doc, getDoc, query, where, collection, getDocs } from '@angular/fire/firestore';
+import { UtilsService } from './utils.service';
 
 
 
@@ -14,9 +15,14 @@ export class FirebaseService {
 
   auth = inject(AngularFireAuth);
   firestore = inject(AngularFirestore);
+  utilsSvc = inject(UtilsService);
 
 
   // AUNTENTICACIÓN
+
+  getAuth() {
+    return getAuth();
+  }
 
   signIn(user: User) {
     return signInWithEmailAndPassword(getAuth(), user.email, user.password);
@@ -30,10 +36,22 @@ export class FirebaseService {
     return updateProfile(getAuth().currentUser, { displayName })
   }
 
+  sendRecoveryEmail(email: string) {
+    return sendPasswordResetEmail(getAuth(), email);
+  }
+
+
+  signOut() {
+    getAuth().signOut();
+    localStorage.removeItem('user');
+    this.utilsSvc.routerLink('/auth')
+  }
+
+
 
 
   //BASE DE DATOS
-  
+
   setDocument(path: string, data: any) {
     return setDoc(doc(getFirestore(), path), data);
   }
@@ -41,6 +59,15 @@ export class FirebaseService {
   async getDocument(path: string) {
     return (await getDoc(doc(getFirestore(), path))).data();
 
+  }
+
+  
+  async checkEmailExists(email: string): Promise<boolean> {
+    const usersRef = collection(getFirestore(), 'users');
+    const q = query(usersRef, where('email', '==', email));
+    const querySnapshot = await getDocs(q);
+  
+    return !querySnapshot.empty;
   }
 
 

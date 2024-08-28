@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  username: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.username = params['username'];
-    });
+
+
+  ngOnInit() { 
+  }
+
+  signOut() {
+    this.firebaseSvc.signOut();
   }
 }

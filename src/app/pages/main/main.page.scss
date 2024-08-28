@@ -1,0 +1,30 @@
+ion-content {
+    --background: #1b1844;
+    --color: var(--ion-color-primary-contrast);
+    --padding-top: 20px;
+}
+
+ion-item {
+    font-size: 14px;
+    color: var(--ion-color-ligth);
+    --background: #1b1844;
+
+    ion-icon {
+        color: var(--ion-color-ligth);
+    }
+
+    &.active {
+        color: var(--ion-color-warning);
+
+        ion-icon {
+            color: var(--ion-color-warning);
+        }
+    }
+
+    ion-color {
+        color: var(--ion-color-ligth);
+    }
+
+
+
+}
