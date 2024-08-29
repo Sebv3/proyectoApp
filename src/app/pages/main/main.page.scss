@@ -24,7 +24,43 @@ ion-item {
     ion-color {
         color: var(--ion-color-ligth);
     }
-
-
-
 }
+
+ion-menu {
+    --width: 245px;
+    --min-width: 245px;
+
+    outline: none;
+}
+
+.btn-footer {
+    margin-bottom: 50px;
+}
+
+h4 {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.avatar-icon {
+    font-size: 100px;
+}
+
+  
+  .logout-item ion-label {
+    color: white;
+}
+  
+  .logout-item ion-icon {
+    color: white;
+}
+
+ion-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+.empty-icon {
+    font-size: 100px;
+}
+  
