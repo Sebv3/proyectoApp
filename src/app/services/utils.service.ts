@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController, ToastOptions } from '@ionic/angular';
+import { AlertController, AlertOptions, LoadingController, ToastController, ToastOptions } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 
@@ -24,7 +24,10 @@ async takePicture(promptLabelHeader: string) {
   });
 };
 
-constructor(private loadingCtrl: LoadingController) { }
+constructor(
+  private loadingCtrl: LoadingController,
+  private alertController: AlertController
+) { }
 
   async showLoading() {
   const loading = await this.loadingCtrl.create({
@@ -58,6 +61,12 @@ saveInLocalStorage(key: string, value: any) {
 // obtiene elemento del localstorage
 getFromLocalStorage(key: string) {
   return JSON.parse(localStorage.getItem(key))
+}
+
+async presentAlert(opts: AlertOptions) {
+  const alert = await this.alertController.create(opts);
+
+  await alert.present();
 }
 
 

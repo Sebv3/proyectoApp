@@ -34,7 +34,22 @@ export class MainPage implements OnInit {
 
 
   signOut() {
-    this.firebaseSvc.signOut();
+    this.utilsSvc.presentAlert({
+      header: 'Cerrar Sesión',
+      message: '¿Quieres cerrar sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            this.firebaseSvc.signOut();
+          }
+        }
+      ]
+    })
   }
 
 }
