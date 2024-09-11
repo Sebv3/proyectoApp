@@ -129,3 +129,15 @@ ion-button {
         --height: 680px;
     }
 }
+
+.add-update-modal {
+    --height: 95%;    
+    --border-radius: 20px;
+}
+
+@media screen and (max-width: 758px){
+    .add-update-modal {
+        --height: 100%;    
+        --border-radius: 20px;
+    }
+}

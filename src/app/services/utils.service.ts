@@ -1,7 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, AlertOptions, LoadingController, ToastController, ToastOptions } from '@ionic/angular';
+import { AlertController, AlertOptions, LoadingController, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Task } from '../models/task.models';
 
 
 @Injectable({
@@ -26,7 +27,8 @@ async takePicture(promptLabelHeader: string) {
 
 constructor(
   private loadingCtrl: LoadingController,
-  private alertController: AlertController
+  private alertController: AlertController,
+  private modalController: ModalController
 ) { }
 
   async showLoading() {
@@ -67,6 +69,28 @@ async presentAlert(opts: AlertOptions) {
   const alert = await this.alertController.create(opts);
 
   await alert.present();
+}
+
+async presentModal(opts: ModalOptions) {
+  const modal = await this.modalController.create(opts);
+  await modal.present();
+
+  const {data} = await modal.onWillDismiss();
+
+  if(data){
+    return data;
+  }
+
+}
+
+dismissModal(data?: any) {
+  this.modalController.dismiss(data)
+}
+
+getPercentage(task: Task): number {
+  const completedItems = task.items.filter(item => item.completed).length;
+  const totalItems = task.items.length;
+  return totalItems === 0 ? 0 : (completedItems / totalItems) * 100; // Retorno como número decimal
 }
 
 

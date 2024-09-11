@@ -2,6 +2,7 @@ ion-card {
     border-radius: 15px;
     padding: 10px;
     min-height: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.168);
 }
 
 ion-card:hover {
@@ -15,3 +16,19 @@ ion-card:hover {
     padding-top: 10px;
     line-height: 20px;
 }
+
+.task-btn {
+    width: 150px;
+    height: 30px;
+}
+
+
+.new-task-button {
+    --background: #1e90ff; /* Color azul claro */
+    --background-hover: #4682b4; /* Azul más oscuro al pasar el mouse */
+    --color: white; /* Color del texto */
+    --border-radius: 25px; /* Bordes redondeados */
+    --padding-start: 16px; /* Espacio al inicio del botón */
+    --padding-end: 16px; /* Espacio al final del botón */
+  }
+  
