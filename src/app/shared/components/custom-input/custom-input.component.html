@@ -1,4 +1,4 @@
-<ion-item class="custom-input" lines="none">
+<ion-item *ngIf="type !== 'textarea'" class="ion-margin-vertical" lines="none">
   <ion-icon class="color-icono" *ngIf="icon" slot="start" [name]="icon"></ion-icon>
   <ion-input [type]="type" [autocomplete]="autocomplete" [label]="label" [formControl]="control" label-placement="floating"></ion-input>
 
@@ -8,3 +8,10 @@
   </ion-button>
 
 </ion-item>
+
+
+<ion-item *ngIf="type == 'textarea'" class="ion-margin-vertical">
+  <ion-label label-placement="floating" position="floating">{{label}}</ion-label>
+  <ion-textarea auto-grow="true" debounce="500" [formControl]="control"></ion-textarea>
+<ion-item>
+

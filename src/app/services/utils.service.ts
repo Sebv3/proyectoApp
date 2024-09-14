@@ -49,18 +49,15 @@ toastCtrl = inject(ToastController)
 }
 
 
-// enruta a pagina disponible
 routerLink(url: string) {
   return this.router.navigateByUrl(url);
 }
 
 
-// guardar elemento en localstorage
 saveInLocalStorage(key: string, value: any) {
   return localStorage.setItem(key, JSON.stringify(value));
 }
 
-// obtiene elemento del localstorage
 getFromLocalStorage(key: string) {
   return JSON.parse(localStorage.getItem(key))
 }
@@ -90,7 +87,7 @@ dismissModal(data?: any) {
 getPercentage(task: Task): number {
   const completedItems = task.items.filter(item => item.completed).length;
   const totalItems = task.items.length;
-  return totalItems === 0 ? 0 : (completedItems / totalItems) * 100; // Retorno como número decimal
+  return totalItems === 0 ? 0 : (completedItems / totalItems) * 100; 
 }
 
 

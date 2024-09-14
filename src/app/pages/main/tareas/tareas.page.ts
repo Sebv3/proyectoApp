@@ -30,8 +30,8 @@ tasks: Task[] = [
     description: 'Crear una funcion que permita autenticar al usuario en Google',
     items: [
       { name:'Actividad 1', completed: true },
-      { name:'Actividad 2', completed: false },
-      { name:'Actividad 3', completed: false },
+      { name:'Actividad 2', completed: true },
+      { name:'Actividad 3', completed: true },
     ],
   },
   {
@@ -39,7 +39,7 @@ tasks: Task[] = [
     title: 'Autenticacion de Google',
     description: 'Crear una funcion que permita autenticar al usuario en Google',
     items: [
-      { name:'Actividad 1', completed: true },
+      { name:'Actividad 1', completed: false },
       { name:'Actividad 2', completed: false },
       { name:'Actividad 3', completed: false },
     ],
@@ -54,13 +54,14 @@ constructor(
 ) { }
 
   ngOnInit() {
+    this.addOrUpdateTask(this.tasks[0])
   }
 
   getPercentage(task: Task) {
     return this.utilsSvc.getPercentage(task)
   }
 
-  addUpdateTask(task?: Task) {
+  addOrUpdateTask(task?: Task) {
     this.utilsSvc.presentModal({
       component: AddUpdateTaskComponent,
       componentProps: { task },

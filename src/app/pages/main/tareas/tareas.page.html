@@ -2,7 +2,7 @@
 
 <ion-content [fullscreen]="true">
 
-<ion-button (click)="addUpdateTask()" class="ion-margin new-task-button" expand="block" color="primary" shape="round">
+<ion-button (click)="addOrUpdateTask()" class="ion-margin new-task-button" expand="block" color="primary" shape="round">
   Nueva Tarea
   <ion-icon slot="end" name="add-outline"></ion-icon>
 </ion-button>
@@ -33,7 +33,7 @@
                     <p>{{task.description | slice:0:85}}...</p>
 
                     <div class="ion-text-center">
-                        <ion-button class="task-btn" size="small">
+                        <ion-button (click)="addOrUpdateTask(task)" class="task-btn" size="small">
                             Ver Tarea
                             <ion-icon slot="end" name="eye-outline"></ion-icon>
                         </ion-button>
