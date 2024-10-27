@@ -23,6 +23,7 @@ export class AuthPage implements OnInit {
 
   async submit() {
     if (this.form.valid) {
+      console.log(this.form.value)
       const loading = await this.utilsSvc.showLoading();
 
       this.firebaseSvc.signIn(this.form.value as User).then(res => {

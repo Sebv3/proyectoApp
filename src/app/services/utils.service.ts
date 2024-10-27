@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AlertController, AlertOptions, LoadingController, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Task } from '../models/task.models';
+import { collection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Injectable({
@@ -28,7 +30,7 @@ async takePicture(promptLabelHeader: string) {
 constructor(
   private loadingCtrl: LoadingController,
   private alertController: AlertController,
-  private modalController: ModalController
+  private modalController: ModalController,
 ) { }
 
   async showLoading() {
@@ -41,6 +43,13 @@ constructor(
   return loading;
 }
 
+async dismissLoading() {
+  const isLoading = await this.loadingCtrl.getTop(); // Verificar si hay un loading activo
+  if (isLoading) {
+    await this.loadingCtrl.dismiss(); // Cerrar el loading activo
+  }
+}
+
 toastCtrl = inject(ToastController)
 
   async presentToast(opts ?: ToastOptions) {
@@ -51,6 +60,14 @@ toastCtrl = inject(ToastController)
 
 routerLink(url: string) {
   return this.router.navigateByUrl(url);
+}
+
+saveElementInLocalStorage(key: string, value: any) {
+  return localStorage.setItem(key, JSON.stringify(value));
+}
+
+getElementFromLocalStorage(key: string) {
+  return JSON.parse(localStorage.getItem(key))
 }
 
 
@@ -89,6 +106,15 @@ getPercentage(task: Task): number {
   const totalItems = task.items.length;
   return totalItems === 0 ? 0 : (completedItems / totalItems) * 100; 
 }
+
+isTaskCompleted(task: Task): boolean {
+  return this.getPercentage(task) === 100;
+}
+
+countPendingTasks(tasks: Task[]): number {
+  return tasks.filter(task => !this.isTaskCompleted(task)).length;
+}
+
 
 
 }

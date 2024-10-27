@@ -17,3 +17,12 @@ ion-range {
 .item.reorder {
     --min-height: 32px;
 }
+
+.task {
+    border-bottom: solid thin rgba(0, 0, 0, 0.212);
+
+}
+
+ion-footer {
+    background: var(--ion-color-light);
+}

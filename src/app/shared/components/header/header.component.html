@@ -1,5 +1,11 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="color-barra">
+
+    <ion-buttons *ngIf="backButton" slot="start">
+      <ion-back-button [defaultHref]="backButton"></ion-back-button>
+    </ion-buttons>
+
+
     <ion-buttons *ngIf="isModal"  slot="start">
     
       <ion-button (click)="closeModal()">

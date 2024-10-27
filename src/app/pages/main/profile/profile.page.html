@@ -1,29 +1,27 @@
 <app-header [showMenu]="true" title="Perfil"></app-header>
 
 <ion-content class="ion-padding-top ion-text-center">
-
-
   <ion-avatar>
-    <img *ngIf="user()?.image" [src]="user()?.image" />
-
-    <ion-icon *ngIf="!user()?.image" class="empty-icon" name="person-circle-outline"></ion-icon>
+    <img *ngIf="userData.image" [src]="userData.image" />
+    <ion-icon *ngIf="!userData.image" class="empty-icon" name="person-circle-outline"></ion-icon>
   </ion-avatar>
 
   <ion-button class="photo-btn" (click)="takeImage()" size="small" shape="round">
     <ion-icon name="camera-outline"></ion-icon>
   </ion-button>
 
-  <h2>{{ user().name }}</h2>
+  <form (ngSubmit)="updateProfile()" #profileForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="userData.name" name="name" required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="userData.email" name="email" type="email" required></ion-input>
+    </ion-item>
 
-  <ion-item button detail>
-    <ion-icon slot="start" name="person-outline"></ion-icon>
-    <ion-label>Editar Perfil</ion-label>
-  </ion-item>
-
-  <ion-item button detail>
-    <ion-icon slot="start" name="document-outline"></ion-icon>
-    <ion-label>Términos y condiciones</ion-label>
-  </ion-item>
- 
+    <ion-button expand="full" type="submit">Actualizar Perfil</ion-button>
+  </form>
 
 </ion-content>

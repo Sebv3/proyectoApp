@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { AddUpdateTaskComponent } from './components/add-update-task/add-update-task.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -33,6 +34,7 @@ import { AddUpdateTaskComponent } from './components/add-update-task/add-update-
     IonicModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,

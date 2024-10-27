@@ -24,8 +24,20 @@ export class MainPage implements OnInit {
 
   ngOnInit() {
     this.router.events.subscribe((event: any) => {
-      if(event?.url) this.currentPath = event.url;
-    })
+      if (event?.url) this.currentPath = event.url;
+    });
+  
+    this.firebaseSvc.authStateChanged$.subscribe(() => {
+      this.refreshUserData();  // Refresca los datos del usuario
+    });
+  }
+
+  refreshUserData() {
+    const user = this.utilsSvc.getFromLocalStorage('user');
+    if (!user) {
+      console.log('Usuario deslogueado');
+      // Opcionalmente redirige o realiza otra acción aquí.
+    }
   }
 
   user(): User {

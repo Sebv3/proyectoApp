@@ -1,5 +1,5 @@
 <ion-content color="ligth"> 
-<app-header color="ligth" [centerTitle]=true [isModal]=true title=Tarea>
+<app-header color="ligth" [centerTitle]=true [isModal]=true [title]="task ? 'Tarea' : 'Nueva tarea'">
     
 </app-header>
 
@@ -39,15 +39,13 @@
     </ion-label>
 
     <ion-buttons slot="end">
+
       <ion-button (click)="removeItem(i)">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-button>
+      <ion-reorder></ion-reorder>
     </ion-buttons>
     
-  </ion-item>
-
-  <ion-item class="item-reorder">
-    <ion-reorder slot="end"></ion-reorder>
   </ion-item>
   </div>
 
@@ -55,3 +53,12 @@
 </ion-reorder-group>
 
 </ion-content>
+
+<ion-footer> 
+  <div class="ion-text-center">
+    <ion-button class="ion-margin" [disabled]="form.invalid" (click)="submit()" shape="round">
+      {{ task ? 'Guardar cambios' : 'Crear tarea' }}
+    </ion-button>
+    
+  </div>
+</ion-footer>

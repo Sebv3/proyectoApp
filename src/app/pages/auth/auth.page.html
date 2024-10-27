@@ -1,5 +1,6 @@
-<app-header title="Login"></app-header>
 <ion-content>
+  <app-header title="Login"></app-header>
+ 
   
 
 <div class="d-flex-center">
@@ -11,7 +12,7 @@
 
     </app-custom-input>
 
-    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
       <div class="ion-text-end" *ngIf="form.controls.email.errors?.['required']">El correo es obligatorio</div>
       <div class="ion-text-end" *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
     </div>
@@ -20,8 +21,8 @@
 
     </app-custom-input>
 
-    <div class="validators" *ngIf="form.controls.password.errors && form.controls.email.touched">
-      <div class="ion-text-end" *ngIf="form.controls.password.errors?.['required']">La contraseña es obligatoria</div>
+    <div class="validators" *ngIf="form.controls.password.errors && form.controls.email.dirty">
+      <div class="ion-text-end" *ngIf="form.controls.password.errors?.['required']">Ingresa tu contraseña</div>
     </div>
 
     <p routerLink="forgot-password" class="ion-text-end">¿Olvidaste tu contraseña?</p>
