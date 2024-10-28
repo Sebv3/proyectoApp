@@ -21,3 +21,11 @@ ion-item {
 h2 {
     margin-top: 5px;
 }
+
+.btn-actualizar {
+    margin: 25px auto; /* esto centra el botón horizontalmente */
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

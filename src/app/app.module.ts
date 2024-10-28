@@ -11,6 +11,8 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from 'src/environments/environment.prod';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 
 
@@ -26,5 +28,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

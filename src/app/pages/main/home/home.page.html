@@ -18,19 +18,38 @@
       </ion-list>
     </ion-card-content>
     <ng-template #noTasks>
-      <p>No hay tareas pendientes</p>
+      <p class="notarea">No hay tareas pendientes</p>
     </ng-template>
   </ion-card>
+
+  <div class="card-container">
+    <ion-card class="custom-card" (click)="navigateToProgress()">
+      <ion-icon icon="arrow-forward-outline" slot="start"></ion-icon>
+      <ion-card-header>
+        <ion-card-title>Mi Progreso</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Visualiza tu progreso aquí</p>
+      </ion-card-content>
+      <ion-button fill="clear" slot="end">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-card>
+
+    <ion-card class="custom-card" (click)="navigateToWeeklyTasks()">
+      <ion-icon name="checkmark-circle" slot="start"></ion-icon>
+      <ion-card-header>
+        <ion-card-title>Tareas de la semana</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Revisa las tareas para esta semana</p>
+      </ion-card-content>
+      <ion-button fill="clear" slot="end">
+        <ion-icon name="return-down-forward-outline"></ion-icon>
+            </ion-button>
+    </ion-card>
+  </div>
   
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
+
   
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card>
 </ion-content>

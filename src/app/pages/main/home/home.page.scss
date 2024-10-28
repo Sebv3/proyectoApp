@@ -1,15 +1,32 @@
+.card-container {
+  display: flex;
+  justify-content: space-around; /* Para distribuir los cuadros de forma uniforme */
+  margin-top: 20px;
+}
+
+.custom-card {
+  width: 45%; /* Ajusta el ancho de los cuadros según necesites */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Asegura que el contenido esté distribuido correctamente */
+}
+
 .badge-container {
-    position: relative;
-  }
-  
-  ion-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1;
-    font-size: 14px;
-  }
+  position: relative;
+}
+
+ion-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  font-size: 14px;
+}
 
 .container-pendientes {
-  margin-top: 30px;
+  margin-top: 10px;
+}
+
+.notarea {
+  margin-left: 20px;
 }
