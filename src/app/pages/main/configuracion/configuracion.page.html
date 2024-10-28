@@ -1,6 +1,48 @@
 <app-header [showMenu]="true" title="Ajustes"></app-header>
 
 <ion-content [fullscreen]="true">
+  <ion-list>
+    <!-- Perfil -->
+    <ion-item>
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-item>
 
+    <!-- Notificaciones -->
+    <ion-item>
+      <ion-icon slot="start" name="notifications-outline"></ion-icon>
+      <ion-label>Notificaciones</ion-label>
+      <ion-toggle slot="end" checked></ion-toggle>
+    </ion-item>
 
+    <!-- Tema Oscuro -->
+    <ion-item>
+      <ion-icon slot="start" name="moon-outline"></ion-icon>
+      <ion-label>Tema Oscuro</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <!-- Idioma -->
+    <ion-item>
+      <ion-icon slot="start" name="globe-outline"></ion-icon>
+      <ion-label>Idioma</ion-label>
+      <ion-select slot="end" placeholder="Seleccionar">
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="en">Inglés</ion-select-option>
+        <ion-select-option value="fr">Francés</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Cambiar contraseña -->
+    <ion-item>
+      <ion-icon slot="start" name="key-outline"></ion-icon>
+      <ion-label>Cambiar Contraseña</ion-label>
+    </ion-item>
+
+    <!-- Cerrar sesión -->
+    <ion-item lines="none" (click)="signOut()">
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

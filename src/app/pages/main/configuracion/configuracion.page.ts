@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-configuracion',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfiguracionPage implements OnInit {
 
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+
+  signOut() {
+    this.utilsSvc.presentAlert({
+      header: 'Cerrar Sesión',
+      message: '¿Quieres cerrar sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            this.firebaseSvc.signOut();
+          }
+        }
+      ]
+    })
   }
 
 }
