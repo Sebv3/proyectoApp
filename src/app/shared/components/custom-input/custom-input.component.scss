@@ -1,3 +1,12 @@
 .color-icono {
     color: #1b1844;
 }
+
+.custom-bordered-item {
+    --border-width: 1px; /* Grosor del borde */
+    --border-color: #00000041; /* Color del borde */
+    --border-style: solid; /* Estilo del borde */
+
+    border: var(--border-width) var(--border-style) var(--border-color);
+    border-radius: 10px; /* Ajusta el valor para redondear */
+}

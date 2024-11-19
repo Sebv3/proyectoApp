@@ -28,6 +28,8 @@ export class HomePage implements OnInit {
     this.getTasks();
   }
 
+  //recuperar tareas del usuario conectado
+
   getTasks() {
     const user = this.utilsSvc.getElementFromLocalStorage('user');
     const path = `users/${user.uid}`;

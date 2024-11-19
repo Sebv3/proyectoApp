@@ -1,0 +1,15 @@
+.custom-black-button {
+  --background: #000; /* Fondo negro */
+  --color: #fff; /* Texto blanco */
+  --border-color: #000; /* Borde negro (si aplica) */
+}
+
+.custom-black-button:hover {
+  --background: #333; /* Fondo gris oscuro al pasar el mouse */
+  --color: #fff;
+}
+
+.forgot {
+    margin-bottom: 30px;
+}
+

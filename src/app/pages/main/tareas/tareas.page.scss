@@ -1,38 +1,67 @@
 ion-card {
-    border-radius: 15px;
-    padding: 10px;
+    border-radius: 20px; /* Bordes más redondeados */
+    padding: 15px;
     min-height: 200px;
-    border: 1px solid rgba(255, 255, 255, 0.168);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Línea sutil */
+    background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Fondo con gradiente */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.7); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
 ion-card:hover {
     cursor: pointer;
-    background: var(--ion-color-light);
+    transform: scale(1.02);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.8); /* Sombra más destacada */
+    background: linear-gradient(145deg, #e0e0e0, #f9f9f9); /* Fondo más claro */
 }
 
 .title {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
     padding-top: 10px;
-    line-height: 20px;
+    line-height: 24px; 
 }
 
 .task-btn {
+    --background: black; /* Fondo del botón */
+    --color: white; /* Color del texto */
+    --border-radius: 15px; /* Bordes redondeados */
     width: 150px;
-    height: 30px;
+    height: 35px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.task-btn:hover {
+    --background: #333333; /* Fondo al pasar el cursor */
+    transform: scale(1.05); /* Pequeño zoom al hacer hover */
+}
 
 .new-task-button {
-    --background: #1e90ff; /* Color azul claro */
-    --background-hover: #4682b4; /* Azul más oscuro al pasar el mouse */
-    --color: white; /* Color del texto */
-    --border-radius: 25px; /* Bordes redondeados */
-    --padding-start: 16px; /* Espacio al inicio del botón */
-    --padding-end: 16px; /* Espacio al final del botón */
+    --background: black;
+    --background-hover: #000000;
+    --color: white;
+    --border-radius: 30px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    font-size: 16px; 
+}
+
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Si quieres que se distribuyan con espacio */
+    gap: 16px; /* Espaciado entre la barra de progreso y los botones */
   }
   
-
-.empty {
-    padding-top: 15vh;
-}
+  .progress-container {
+    flex-shrink: 0; /* Evita que la barra de progreso se reduzca */
+  }
+  
+  .buttons-container {
+    display: flex;
+    flex-direction: column; /* Botones uno debajo del otro */
+    gap: 8px; /* Espaciado entre botones */
+  }

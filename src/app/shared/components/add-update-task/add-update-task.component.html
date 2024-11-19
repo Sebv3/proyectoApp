@@ -21,7 +21,7 @@
         <span slot="end" *ngIf="form.value.items.length">
         Progreso: {{getPercentage()}}%
         </span>
-            <ion-button slot="end" (click)="createItem()">
+            <ion-button class="btn-negro" slot="end" (click)="createItem()">
                 <ion-icon name="add-outline"></ion-icon>
             </ion-button>
 </ion-item>
@@ -55,8 +55,8 @@
 </ion-content>
 
 <ion-footer> 
-  <div class="ion-text-center">
-    <ion-button class="ion-margin" [disabled]="form.invalid" (click)="submit()" shape="round">
+  <div class="ion-text-center btn-crear">
+    <ion-button class="ion-margin btn-negro" [disabled]="form.invalid" (click)="submit()" shape="round">
       {{ task ? 'Guardar cambios' : 'Crear tarea' }}
     </ion-button>
     

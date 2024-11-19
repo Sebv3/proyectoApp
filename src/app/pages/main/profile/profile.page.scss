@@ -7,7 +7,14 @@ ion-avatar {
 .photo-btn {
     position: relative;
     bottom: 25px;
-}
+    --background: black; /* Fondo negro */
+    --color: white; /* Texto e íconos en blanco */
+    --border-radius: 50%; /* Opcional: si quieres que sea un botón redondo */
+  }
+  
+  .photo-btn:hover {
+    --background: #333333; /* Fondo más oscuro al hacer hover */
+  }
 
 ion-item {
     --padding-top: 15px;
@@ -23,9 +30,16 @@ h2 {
 }
 
 .btn-actualizar {
-    margin: 25px auto; /* esto centra el botón horizontalmente */
+    margin: 25px auto; /* Centra el botón horizontalmente */
     width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    --background: black; /* Fondo negro */
+    --color: white; /* Texto blanco */
+    --border-radius: 15px; /* Bordes redondeados */
+  }
+  
+  .btn-actualizar:hover {
+    --background: #333333; /* Fondo más oscuro al hacer hover */
+  }
